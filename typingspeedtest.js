@@ -14,3 +14,19 @@ const stats = document.getElementById('stats');
 let startTime, endTime;
 let currentText = '';
 
+function startText(){
+textInput.value = '';
+stats.textContent = '';
+textInput.disabled = false;
+
+
+currentText = texts[Math.floor(Math.random)*texts.length];
+textDisplay.textContent = currentText;
+
+
+textInput.focus();
+startTime = new Date().getTime();
+
+textInput.addEventListener('input', checkTyping)
+
+}
