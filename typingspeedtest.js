@@ -30,3 +30,9 @@ startTime = new Date().getTime();
 textInput.addEventListener('input', checkTyping)
 
 }
+
+function checkTyping(){
+
+
+    
+}
