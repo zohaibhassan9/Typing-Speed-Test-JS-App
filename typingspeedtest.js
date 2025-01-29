@@ -32,7 +32,22 @@ textInput.addEventListener('input', checkTyping)
 }
 
 function checkTyping(){
+const typedTest = textInput.value;
+
+if (currentText.startsWith(typedTest)){
+
+    textInput.style.borderColor = 'green';
+}
+else {
+    textInput.style.borderColor = 'red';
+
+}
 
 
-    
+
+if (typedTest === currentText){
+    endTime = new Date.getTime();
+    calsulateResults();
+}
+
 }
