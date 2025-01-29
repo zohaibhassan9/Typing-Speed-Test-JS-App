@@ -1,6 +1,6 @@
 const texts = ['Daly sunshine is a pert of our lives.',
     'It plays a very good role.',
-    'Useful for every being in the world.'
+    'Useful for every being in the world.',
 
 ]
 
@@ -20,7 +20,7 @@ stats.textContent = '';
 textInput.disabled = false;
 
 
-currentText = texts[Math.floor(Math.random)*texts.length];
+currentText = texts[Math.floor(Math.random) * texts.length];
 textDisplay.textContent = currentText;
 
 
@@ -32,9 +32,9 @@ textInput.addEventListener('input', checkTyping)
 }
 
 function checkTyping(){
-const typedTest = textInput.value;
+const typedText = textInput.value;
 
-if (currentText.startsWith(typedTest)){
+if (currentText.startsWith(typedText)){
 
     textInput.style.borderColor = 'green';
 }
@@ -45,9 +45,25 @@ else {
 
 
 
-if (typedTest === currentText){
+if (typedText === currentText){
     endTime = new Date.getTime();
     calsulateResults();
 }
 
 }
+
+function calsulateResults(){
+textInput.disabled = true;
+const timeTaken = (endTime - startTime) / 1000;
+
+const wordCount = currentText.split('').length;
+const wpm = Math.round((wordCount / timeTaken)*60);
+
+stats.innerHTML = `
+<p> Time Take: ${timeTaken.toFixed(2)} seconds</p>
+<p>Word count minute ${wpm} WPM</p>
+`
+
+}
+
+startBtn.addEventListener('click', startText);
